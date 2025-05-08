@@ -1,0 +1,47 @@
+[System]
+Name='KI1'
+Type='sugeno'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=9
+AndMethod='prod'
+OrMethod='probor'
+ImpMethod='prod'
+AggMethod='sum'
+DefuzzMethod='wtaver'
+
+[Input1]
+Name='E'
+Range=[0 0.2]
+NumMFs=3
+MF1='mf1':'gaussmf',[0.0603349382802008 0.00467532467532468]
+MF2='mf2':'gaussmf',[0.0667324271654871 0.153766233766234]
+MF3='mf3':'gaussmf',[0.076218358960912 0.195844155844156]
+
+[Input2]
+Name='d/dtE'
+Range=[-0.12 0]
+NumMFs=3
+MF1='mf1':'gaussmf',[0.0312331242686561 -0.110090322580645]
+MF2='mf2':'gaussmf',[0.00894253663270998 -0.014941935483871]
+MF3='mf3':'gaussmf',[0.0178193193195912 0.022141935483871]
+
+[Output1]
+Name='ContrSignal'
+Range=[0 10]
+NumMFs=3
+MF1='mf1':'constant',[0]
+MF2='mf2':'constant',[5]
+MF3='mf3':'constant',[10]
+
+[Rules]
+1 1, 1 (1) : 1
+2 1, 1 (1) : 1
+3 1, 2 (1) : 1
+1 2, 1 (1) : 1
+2 2, 2 (1) : 1
+3 2, 3 (1) : 1
+1 3, 2 (1) : 1
+2 3, 3 (1) : 1
+3 3, 3 (1) : 1
